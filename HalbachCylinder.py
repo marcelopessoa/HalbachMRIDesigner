@@ -85,7 +85,11 @@ class HalbachCylinder:
         defaultMagnetType = params['defaultMagnetType']
         rings = []
         for ring in params['rings']:
-            rings.append(HalbachRing(int(ring['id']), 0, float(ring['radius'])/1e3, ring['numMagnets'], magnetTypes[defaultMagnetType]))
+            # grade-mista: anel pode declarar "magnetType" (indice em magnets[]); senao usa o default
+            mt = magnetTypes[int(ring.get('magnetType', defaultMagnetType))]
+            # esparsidade: anel pode declarar "presenceMask" (lista 0/1 de tamanho numMagnets)
+            mask = ring.get('presenceMask', None)
+            rings.append(HalbachRing(int(ring['id']), 0, float(ring['radius'])/1e3, ring['numMagnets'], mt, mask))
         for index, slice in enumerate(params['slices']):
             if 'standHeight' in slice:
                 standHeight = float(slice['standHeight'])/1e3
@@ -113,7 +117,13 @@ class HalbachCylinder:
                     float(slice['outerRadius'])/1e3, numConnectionRods, connectionRodsArcRadius, connectionRodsDiameter,
                     standHeight, standWidth)
                 for ring in slice['rings']:
-                    halbachSlice.addRing(copy.deepcopy(rings[ring['id']]), -float(slice['position'])/1e3)
+                    # busca por id (NAO por indice) — corrige bug quando ids nao sao contiguos/ordenados
+                    ringId = None
+                    for ringIndex, ringObject in enumerate(rings):
+                        if ringObject.ringId == ring['id']:
+                            ringId = ringIndex
+                    assert ringId is not None, "invalid json file"
+                    halbachSlice.addRing(copy.deepcopy(rings[ringId]), -float(slice['position'])/1e3)
                 halbachSlice.setParams(params)
                 halbachSlice.setId(index)
                 self.addSlice(halbachSlice)

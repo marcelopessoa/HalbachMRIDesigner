@@ -1,0 +1,353 @@
+{
+  "_comment": "GA-homog L=2 camadas, cubo 20mm. objetivo=residuo shimmavel.",
+  "magnets": [
+    {
+      "_grade": "N42",
+      "dimension": "20.0",
+      "shape": "cube",
+      "BR": "1.32",
+      "mur": "1.05"
+    },
+    {
+      "_grade": "N42",
+      "dimension": "20.0",
+      "shape": "cube",
+      "BR": "1.32",
+      "mur": "1.05"
+    }
+  ],
+  "defaultMagnetType": 0,
+  "rings": [
+    {
+      "id": 0,
+      "radius": 65.3,
+      "numMagnets": 13,
+      "magnetType": 0
+    },
+    {
+      "id": 1,
+      "radius": 87.8,
+      "numMagnets": 11,
+      "magnetType": 1
+    },
+    {
+      "id": 2,
+      "radius": 65.3,
+      "numMagnets": 12,
+      "magnetType": 0
+    },
+    {
+      "id": 3,
+      "radius": 87.8,
+      "numMagnets": 15,
+      "magnetType": 1
+    },
+    {
+      "id": 4,
+      "radius": 65.3,
+      "numMagnets": 13,
+      "magnetType": 0
+    },
+    {
+      "id": 5,
+      "radius": 87.8,
+      "numMagnets": 15,
+      "magnetType": 1
+    },
+    {
+      "id": 6,
+      "radius": 65.3,
+      "numMagnets": 11,
+      "magnetType": 0
+    },
+    {
+      "id": 7,
+      "radius": 87.8,
+      "numMagnets": 14,
+      "magnetType": 1
+    },
+    {
+      "id": 8,
+      "radius": 65.3,
+      "numMagnets": 14,
+      "magnetType": 0
+    },
+    {
+      "id": 9,
+      "radius": 87.8,
+      "numMagnets": 12,
+      "magnetType": 1
+    },
+    {
+      "id": 10,
+      "radius": 65.3,
+      "numMagnets": 13,
+      "magnetType": 0
+    },
+    {
+      "id": 11,
+      "radius": 87.8,
+      "numMagnets": 6,
+      "magnetType": 1
+    },
+    {
+      "id": 12,
+      "radius": 65.3,
+      "numMagnets": 14,
+      "magnetType": 0
+    },
+    {
+      "id": 13,
+      "radius": 87.8,
+      "numMagnets": 20,
+      "magnetType": 1
+    },
+    {
+      "id": 14,
+      "radius": 65.3,
+      "numMagnets": 13,
+      "magnetType": 0
+    },
+    {
+      "id": 15,
+      "radius": 87.8,
+      "numMagnets": 8,
+      "magnetType": 1
+    },
+    {
+      "id": 16,
+      "radius": 65.3,
+      "numMagnets": 13,
+      "magnetType": 0
+    },
+    {
+      "id": 17,
+      "radius": 87.8,
+      "numMagnets": 20,
+      "magnetType": 1
+    },
+    {
+      "id": 18,
+      "radius": 65.3,
+      "numMagnets": 7,
+      "magnetType": 0
+    },
+    {
+      "id": 19,
+      "radius": 87.8,
+      "numMagnets": 14,
+      "magnetType": 1
+    },
+    {
+      "id": 20,
+      "radius": 65.3,
+      "numMagnets": 8,
+      "magnetType": 0
+    },
+    {
+      "id": 21,
+      "radius": 87.8,
+      "numMagnets": 20,
+      "magnetType": 1
+    },
+    {
+      "id": 22,
+      "radius": 65.3,
+      "numMagnets": 12,
+      "magnetType": 0
+    },
+    {
+      "id": 23,
+      "radius": 87.8,
+      "numMagnets": 19,
+      "magnetType": 1
+    }
+  ],
+  "mirrorSlices": true,
+  "shimTrayHeight": "14",
+  "shimTrayAngle": "25",
+  "shimTrayRadius": "90",
+  "standWidth": "200",
+  "standHeight": "150",
+  "numConnectionRods": 8,
+  "connectionRodsArcRadius": 100,
+  "connectionRodsDiameter": 5,
+  "slices": [
+    {
+      "position": "0",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 0
+        },
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "position": "20",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "40",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "60",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "80",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        }
+      ]
+    },
+    {
+      "position": "100",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "120",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "140",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "160",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "180",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "200",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "220",
+      "innerRadius": "44",
+      "outerRadius": "99",
+      "rings": [
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    }
+  ]
+}

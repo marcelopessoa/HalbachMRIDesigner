@@ -1,0 +1,216 @@
+{
+  "_comment": "GA-homog L=3 camadas, cubo 20mm. objetivo=residuo shimmavel.",
+  "magnets": [
+    {
+      "_grade": "N52",
+      "dimension": "20.0",
+      "shape": "cube",
+      "BR": "1.48",
+      "mur": "1.05"
+    },
+    {
+      "_grade": "N52",
+      "dimension": "20.0",
+      "shape": "cube",
+      "BR": "1.48",
+      "mur": "1.05"
+    },
+    {
+      "_grade": "N42",
+      "dimension": "20.0",
+      "shape": "cube",
+      "BR": "1.32",
+      "mur": "1.05"
+    }
+  ],
+  "defaultMagnetType": 0,
+  "rings": [
+    {
+      "id": 0,
+      "radius": 63.3,
+      "numMagnets": 9,
+      "magnetType": 0
+    },
+    {
+      "id": 1,
+      "radius": 88.7,
+      "numMagnets": 13,
+      "magnetType": 1
+    },
+    {
+      "id": 2,
+      "radius": 113.4,
+      "numMagnets": 19,
+      "magnetType": 2
+    },
+    {
+      "id": 3,
+      "radius": 63.3,
+      "numMagnets": 8,
+      "magnetType": 0
+    },
+    {
+      "id": 4,
+      "radius": 88.7,
+      "numMagnets": 11,
+      "magnetType": 1
+    },
+    {
+      "id": 5,
+      "radius": 113.4,
+      "numMagnets": 6,
+      "magnetType": 2
+    },
+    {
+      "id": 6,
+      "radius": 63.3,
+      "numMagnets": 6,
+      "magnetType": 0
+    },
+    {
+      "id": 7,
+      "radius": 88.7,
+      "numMagnets": 19,
+      "magnetType": 1
+    },
+    {
+      "id": 8,
+      "radius": 113.4,
+      "numMagnets": 23,
+      "magnetType": 2
+    },
+    {
+      "id": 9,
+      "radius": 63.3,
+      "numMagnets": 14,
+      "magnetType": 0
+    },
+    {
+      "id": 10,
+      "radius": 88.7,
+      "numMagnets": 17,
+      "magnetType": 1
+    },
+    {
+      "id": 11,
+      "radius": 113.4,
+      "numMagnets": 21,
+      "magnetType": 2
+    },
+    {
+      "id": 12,
+      "radius": 63.3,
+      "numMagnets": 14,
+      "magnetType": 0
+    },
+    {
+      "id": 13,
+      "radius": 88.7,
+      "numMagnets": 20,
+      "magnetType": 1
+    },
+    {
+      "id": 14,
+      "radius": 113.4,
+      "numMagnets": 17,
+      "magnetType": 2
+    }
+  ],
+  "mirrorSlices": true,
+  "shimTrayHeight": "14",
+  "shimTrayAngle": "25",
+  "shimTrayRadius": "90",
+  "standWidth": "200",
+  "standHeight": "150",
+  "numConnectionRods": 8,
+  "connectionRodsArcRadius": 100,
+  "connectionRodsDiameter": 5,
+  "slices": [
+    {
+      "position": "0",
+      "innerRadius": "44",
+      "outerRadius": "125",
+      "rings": [
+        {
+          "id": 0
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "position": "20",
+      "innerRadius": "44",
+      "outerRadius": "125",
+      "rings": [
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "40",
+      "innerRadius": "44",
+      "outerRadius": "125",
+      "rings": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "60",
+      "innerRadius": "44",
+      "outerRadius": "125",
+      "rings": [
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "80",
+      "innerRadius": "44",
+      "outerRadius": "125",
+      "rings": [
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        }
+      ]
+    }
+  ]
+}

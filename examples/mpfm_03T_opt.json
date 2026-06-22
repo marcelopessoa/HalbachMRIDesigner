@@ -1,0 +1,121 @@
+{
+    "_comment": "GA-otimizado (Cooley 2018). Grade N52 BR=1.48. Cubo 15mm.",
+    "magnets": [
+        {
+            "_grade": "N52",
+            "dimension": "15.0",
+            "shape": "cube",
+            "BR": "1.48",
+            "mur": "1.05"
+        }
+    ],
+    "defaultMagnetType": 0,
+    "rings": [
+        {
+            "id": 0,
+            "radius": 52.9,
+            "numMagnets": 12,
+            "_role": "interna-corpo"
+        },
+        {
+            "id": 1,
+            "radius": 79.7,
+            "numMagnets": 23,
+            "_role": "externa-corpo"
+        },
+        {
+            "id": 2,
+            "radius": 52.9,
+            "numMagnets": 16,
+            "_role": "interna-extremidade"
+        },
+        {
+            "id": 3,
+            "radius": 79.7,
+            "numMagnets": 24,
+            "_role": "externa-extremidade"
+        }
+    ],
+    "mirrorSlices": true,
+    "shimTrayHeight": "14",
+    "shimTrayAngle": "25",
+    "shimTrayRadius": "90",
+    "standWidth": "200",
+    "standHeight": "150",
+    "numConnectionRods": 8,
+    "connectionRodsArcRadius": 100,
+    "connectionRodsDiameter": 5,
+    "slices": [
+        {
+            "position": "0",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "rings": [
+                {
+                    "id": 0
+                },
+                {
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "position": "20",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "rings": [
+                {
+                    "id": 0
+                },
+                {
+                    "id": 1
+                }
+            ],
+            "standWidth": "0",
+            "standHeight": "0"
+        },
+        {
+            "position": "40",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "rings": [
+                {
+                    "id": 0
+                },
+                {
+                    "id": 1
+                }
+            ],
+            "standWidth": "0",
+            "standHeight": "0"
+        },
+        {
+            "position": "60",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "rings": [
+                {
+                    "id": 2
+                },
+                {
+                    "id": 3
+                }
+            ],
+            "standWidth": "0",
+            "standHeight": "0"
+        },
+        {
+            "position": "80",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "rings": [
+                {
+                    "id": 2
+                },
+                {
+                    "id": 3
+                }
+            ]
+        }
+    ]
+}

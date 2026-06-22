@@ -1,0 +1,73 @@
+{
+    "_comment": "CS-MPFM-LFMRI :: Halbach tubular esparso 0,30 T para medicao multifasica (spool DN50, bore livre ~90 mm). Cubos NdFeB N52 (BR=1.48) com aneis de extremidade end-compensados. Ponto de operacao semente do otimizador genetico (Cooley 2018). Campo analitico dipolar ~0.36 T -> derating FEM (mur=1.05 + demag) ~0.29-0.32 T -> GA/escolha de grade fecha em 0.300 T. f0(1H) @ 0.30 T = 12.77 MHz.",
+    "magnets":
+    [
+        {
+            "_grade": "N52",
+            "dimension": "15",
+            "shape": "cube",
+            "BR": "1.48",
+            "mur": "1.05"
+        },
+        {
+            "_grade": "N42 (alternativa de derating/custo - requer patch magnetType-por-anel)",
+            "dimension": "15",
+            "shape": "cube",
+            "BR": "1.32",
+            "mur": "1.05"
+        }
+    ],
+    "defaultMagnetType": 0,
+    "rings":
+    [
+        { "id": 0, "radius": 56, "numMagnets": 16, "_role": "camada interna - corpo" },
+        { "id": 1, "radius": 76, "numMagnets": 24, "_role": "camada externa - corpo" },
+        { "id": 2, "radius": 56, "numMagnets": 20, "_role": "camada interna - extremidade (end-comp +4)" },
+        { "id": 3, "radius": 76, "numMagnets": 28, "_role": "camada externa - extremidade (end-comp +4)" }
+    ],
+    "mirrorSlices": true,
+    "shimTrayHeight": "14",
+    "shimTrayAngle": "25",
+    "shimTrayRadius": "90",
+    "standWidth": "200",
+    "standHeight": "150",
+    "numConnectionRods": 8,
+    "connectionRodsArcRadius": 100,
+    "connectionRodsDiameter": 5,
+    "slices":
+    [
+        {
+            "position": "0",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "rings": [ { "id": 0 }, { "id": 1 } ]
+        },
+        {
+            "position": "20",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "standWidth": "0", "standHeight": "0",
+            "rings": [ { "id": 0 }, { "id": 1 } ]
+        },
+        {
+            "position": "40",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "standWidth": "0", "standHeight": "0",
+            "rings": [ { "id": 0 }, { "id": 1 } ]
+        },
+        {
+            "position": "60",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "standWidth": "0", "standHeight": "0",
+            "rings": [ { "id": 2 }, { "id": 3 } ]
+        },
+        {
+            "position": "80",
+            "innerRadius": "45",
+            "outerRadius": "95",
+            "rings": [ { "id": 2 }, { "id": 3 } ]
+        }
+    ]
+}

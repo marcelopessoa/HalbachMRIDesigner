@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+# Saidas FEM geradas (regeneraveis via HalbachMRIDesigner.py --fem + getdp; pesadas)
+*.pos
+*.msh
+*.pre
+*.res
+*.geo
+*.geo.opt
+*.geo_unrolled.xao
+mpfm_*.pickle
+
+# CAD pesado regeneravel a partir do .scad (mantem .scad fonte + .csg + .step)
+*.stl
+renders/**/*.stl
+
+# CSVs de calibracao de shim gerados
+shim_active_*.csv

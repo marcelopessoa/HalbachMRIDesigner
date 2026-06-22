@@ -1,0 +1,164 @@
+{
+  "_comment": "GA-homogeneidade 2 camadas (objetivo: residuo shimmavel). grade-mista por camada.",
+  "magnets": [
+    {
+      "_grade": "N52",
+      "dimension": "20.0",
+      "shape": "cube",
+      "BR": "1.48",
+      "mur": "1.05"
+    },
+    {
+      "_grade": "N52",
+      "dimension": "20.0",
+      "shape": "cube",
+      "BR": "1.48",
+      "mur": "1.05"
+    }
+  ],
+  "defaultMagnetType": 0,
+  "rings": [
+    {
+      "id": 0,
+      "radius": 65.0,
+      "numMagnets": 10,
+      "magnetType": 0
+    },
+    {
+      "id": 1,
+      "radius": 97.4,
+      "numMagnets": 18,
+      "magnetType": 1
+    },
+    {
+      "id": 2,
+      "radius": 65.0,
+      "numMagnets": 10,
+      "magnetType": 0
+    },
+    {
+      "id": 3,
+      "radius": 97.4,
+      "numMagnets": 8,
+      "magnetType": 1
+    },
+    {
+      "id": 4,
+      "radius": 65.0,
+      "numMagnets": 8,
+      "magnetType": 0
+    },
+    {
+      "id": 5,
+      "radius": 97.4,
+      "numMagnets": 10,
+      "magnetType": 1
+    },
+    {
+      "id": 6,
+      "radius": 65.0,
+      "numMagnets": 15,
+      "magnetType": 0
+    },
+    {
+      "id": 7,
+      "radius": 97.4,
+      "numMagnets": 22,
+      "magnetType": 1
+    },
+    {
+      "id": 8,
+      "radius": 65.0,
+      "numMagnets": 13,
+      "magnetType": 0
+    },
+    {
+      "id": 9,
+      "radius": 97.4,
+      "numMagnets": 22,
+      "magnetType": 1
+    }
+  ],
+  "mirrorSlices": true,
+  "shimTrayHeight": "14",
+  "shimTrayAngle": "25",
+  "shimTrayRadius": "90",
+  "standWidth": "200",
+  "standHeight": "150",
+  "numConnectionRods": 8,
+  "connectionRodsArcRadius": 100,
+  "connectionRodsDiameter": 5,
+  "slices": [
+    {
+      "position": "0",
+      "innerRadius": "45",
+      "outerRadius": "95",
+      "rings": [
+        {
+          "id": 0
+        },
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "position": "20",
+      "innerRadius": "45",
+      "outerRadius": "95",
+      "rings": [
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "40",
+      "innerRadius": "45",
+      "outerRadius": "95",
+      "rings": [
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "60",
+      "innerRadius": "45",
+      "outerRadius": "95",
+      "rings": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ],
+      "standWidth": "0",
+      "standHeight": "0"
+    },
+    {
+      "position": "80",
+      "innerRadius": "45",
+      "outerRadius": "95",
+      "rings": [
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        }
+      ]
+    }
+  ]
+}

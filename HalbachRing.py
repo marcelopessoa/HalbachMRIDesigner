@@ -45,16 +45,21 @@ def addBox(x, y, z, dx, dy, dz, meshSize = 0):
 
 class HalbachRing:
     # all units are SI units
-    def __init__(self, ringId, position, radius, numMagnets, magnetType):
+    def __init__(self, ringId, position, radius, numMagnets, magnetType, presenceMask=None):
+        # presenceMask: optional iterable of length numMagnets; positions that are
+        # falsy are left EMPTY (sparse Halbach a la Cooley 2018). None = full ring.
         self.ringId = ringId
         self.radius = radius
         self.numMagnets = numMagnets
         self.position = position
+        self.presenceMask = presenceMask
 
         magnetAngles = np.linspace(0, 2*np.pi, self.numMagnets, endpoint=False)
         self.magnets = []
         k = 2
-        for angle in magnetAngles:
+        for idx, angle in enumerate(magnetAngles):
+            if presenceMask is not None and not presenceMask[idx]:
+                continue  # posicao esparsa: sem ima
             self.magnets.append(Magnet((radius*np.cos(angle), radius*np.sin(angle), 0), angle*k, magnetType))
 
     def setPosition(self, position):
@@ -100,8 +105,9 @@ class HalbachRing:
         meshResolution = 0.006
         magnetData = ""
         for index, magnet in enumerate(self.magnets, start=1):
-            boxPos = np.array(magnet.position) - magnet.magnetType.dimension/2 + (0,0,self.position)
-            magnetTag = gmsh.model.occ.addBox(boxPos[0], boxPos[1], boxPos[2], magnet.magnetType.dimension, magnet.magnetType.dimension, magnet.magnetType.dimension)
+            dim_fem = magnet.magnetType.dimension * float(os.environ.get("FEM_SHRINK", "0.93"))  # encolhe so no FEM: evita merge OCC de cubos tocando (sem mudar o design). Densos (DN65) exigem mais shrink (ex. 0.88); corrige-se o volume por /shrink^3
+            boxPos = np.array(magnet.position) - dim_fem/2 + (0,0,self.position)
+            magnetTag = gmsh.model.occ.addBox(boxPos[0], boxPos[1], boxPos[2], dim_fem, dim_fem, dim_fem)
             gmsh.model.occ.rotate([[3, magnetTag]], magnet.position[0], magnet.position[1], magnet.position[2] + self.position, 0, 0, 1, magnet.angle)
             gmsh.model.occ.synchronize()            
             entities = gmsh.model.getBoundary([[3, magnetTag]], oriented=False)

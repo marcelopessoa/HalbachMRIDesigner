@@ -140,8 +140,27 @@ if __name__ == '__main__':
         airVolBoundary = [x[1] for x in gmsh.model.getBoundary([[3,airVol]], oriented=False)]
         gmsh.model.occ.fragment(gmsh.model.occ.getEntities(3), [])
         gmsh.model.occ.synchronize()
-        physicalTag = gmsh.model.addPhysicalGroup(3, [airVol], numMagnets+1)
-        physicalTag = gmsh.model.addPhysicalGroup(2, airVolBoundary, numMagnets+2)
+        # FIX (jun/2026): apos fragment() os tags occ sao renumerados, entao [airVol]/airVolBoundary
+        # ficavam obsoletos (capturavam slivers -> ar=12 elem -> phi=0 -> B=0). Robusto:
+        #  - ar = TODAS as entidades 3D menos os imas (imas ja tem physical group 1..N de generateGeometry)
+        #  - contorno de Dirichlet = faces do ar que estao na casca da caixa (filtro geometrico)
+        _magnet_ents = set()
+        for (_pd, _pt) in gmsh.model.getPhysicalGroups(3):
+            if 1 <= _pt <= numMagnets:
+                _magnet_ents.update(gmsh.model.getEntitiesForPhysicalGroup(3, _pt))
+        _all3d = set(t for (_d, t) in gmsh.model.getEntities(3))
+        _air_ents = sorted(_all3d - _magnet_ents)
+        gmsh.model.addPhysicalGroup(3, _air_ents, numMagnets+1)
+        _h = boxDimensions[0]
+        _outer = []
+        for (_d, _s) in gmsh.model.getBoundary([(3, t) for t in _air_ents], combined=True, oriented=False):
+            _bb = gmsh.model.getBoundingBox(2, _s)
+            if (abs(_bb[0]+_h) < 1e-4 or abs(_bb[3]-_h) < 1e-4 or abs(_bb[1]+_h) < 1e-4 or
+                    abs(_bb[4]-_h) < 1e-4 or abs(_bb[2]+_h) < 1e-4 or abs(_bb[5]-_h) < 1e-4):
+                _outer.append(_s)
+        gmsh.model.addPhysicalGroup(2, _outer, numMagnets+2)
+        gmsh.model.addPhysicalGroup(3, _air_ents, numMagnets+3)  # Vol_DSV (cosmetico no template; reusa ar)
+        print(f"[fem-fix] ar={len(_air_ents)} vols, contorno externo={len(_outer)} faces, imas={len(_magnet_ents)}")
         gmsh.model.occ.synchronize()
         gmsh.model.mesh.generate(3)
 
