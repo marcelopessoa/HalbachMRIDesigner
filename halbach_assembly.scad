@@ -22,10 +22,9 @@ roi_ID   = 30;                          // ROI homogenea r<=15mm = nucleo de med
 //   ordem do fluido p/ fora: liner Al2O3 | folga | RF coil | escudo RF | folga | gradiente | escudo grad | folga | bore
 coil_L  = 240;                          // comprimento dos enrolamentos (dentro do bore)
 slit_w  = 3;                            // largura da fenda anti-eddy (overlap capacitivo conceitual)
-rf_in   = liner_OD + 1;  rf_out  = rf_in + 4;     // RF solenoide + former (D 85->89)
-rfs_in  = rf_out + 1;    rfs_out = rfs_in + 2;     // escudo RF Cu/PEEK fendido ||B1 (D 90->92)
-gr_in   = rfs_out + 1;   gr_out  = gr_in + 5;      // bobina de gradiente (D 93->98)
-grs_in  = gr_out + 1;    grs_out = grs_in + 2;     // escudo gradiente fendido ortogonal (D 99->101; folga ate bore 104)
+rf_in   = liner_OD + 1;  rf_out  = rf_in + 4;     // RF solenoide + former (D 85->89), a~43,5mm
+gr_in   = rf_out + 3;    gr_out  = gr_in + 5;      // bobina de gradiente ENTRE coil e escudo (D 92->97)
+fsh_in  = gr_out + 3;    fsh_out = fsh_in + 2;     // ESCUDO FARADAY = housing externo, 32 fendas axiais ||B1 (D 100->102, b~50,5; b/a~1,16; folga ate bore 104)
 
 // ---- conexoes API 6A (flange 2-9/16" / 3-1/8" classe alta) ----
 flange_OD = 210; flange_t = 44; bolt_pcd = 168; bolt_d = 24; n_bolts = 8;
@@ -76,10 +75,11 @@ module roi_z()    { difference() { cylinder(h=mag_L, d=roi_ID+4, center=true); c
 
 // ----- PILHA CONCENTRICA: RF + escudos fendidos + gradiente -----
 module tube_z(d_in,d_out,L) difference(){ cylinder(h=L,d=d_out,center=true); cylinder(h=L+2,d=d_in,center=true); }
-module rf_coil_z()     tube_z(rf_in,  rf_out,  coil_L);
-module rf_shield_z()   difference(){ tube_z(rfs_in, rfs_out, coil_L); cube([rfs_out+2, slit_w, coil_L+2], center=true); }              // fenda axial || B1
-module grad_coil_z()   tube_z(gr_in,  gr_out,  coil_L);
-module grad_shield_z() difference(){ tube_z(grs_in, grs_out, coil_L); rotate([0,0,90]) cube([grs_out+2, slit_w, coil_L+2], center=true); } // fenda ortogonal
+module rf_coil_z()   tube_z(rf_in, rf_out, coil_L);
+module grad_coil_z() tube_z(gr_in, gr_out, coil_L);
+// ESCUDO FARADAY = housing externo; 32 fendas axiais ||B1 (pontes capacitivas de overlap nao desenhadas)
+module faraday_z()   difference(){ tube_z(fsh_in, fsh_out, coil_L);
+    for (i=[0:31]) rotate([0,0,i*360/32]) translate([fsh_out/2,0,0]) cube([4, slit_w, coil_L+2], center=true); }
 
 module flow_module() {           // DEITADO: eixo de fluxo ao longo de X
     rotate([0,90,0]) {
@@ -88,10 +88,9 @@ module flow_module() {           // DEITADO: eixo de fluxo ao longo de X
         color("gold")               magnet_z();
         color("tomato")             roi_z();
         // --- pilha concentrica no anel ---
-        color([0.85,0.55,0.25])     rf_coil_z();       // RF (cobre)
-        color("orange")             rf_shield_z();      // escudo RF fendido ||B1
-        color("mediumpurple")       grad_coil_z();      // gradiente
-        color("dimgray")            grad_shield_z();    // escudo gradiente fendido ortogonal
+        color([0.85,0.55,0.25])     rf_coil_z();       // RF (cobre), a~43,5mm
+        color("mediumpurple")       grad_coil_z();      // gradiente (entre coil e escudo)
+        color("orange")             faraday_z();        // ESCUDO FARADAY = housing externo, 32 fendas axiais ||B1 (b/a~1,16)
     }
 }
 
