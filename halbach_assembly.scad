@@ -44,8 +44,9 @@ plate_t   = 30;
 plate_top = -can_OD/2 - 40;          // logo abaixo do magneto
 plate_y0  = -fr_W/2 + beam;          // estende ate o lado +Y onde fica a eletronica
 
-// ---- canister da ELETRONICA — em PÉ, base apoiada no PLATE, AO LADO do magneto (1-atm, <=40°C) ----
-elec_OD = 180; elec_L = 300;
+// ---- canister da ELETRONICA — em PÉ, base no PLATE, AO LADO do magneto (1-atm, <=40°C, RFPA+RFSoC+GPA+fonte) ----
+// PROJETO_CANISTER_ELETRONICA.md: 1-atm Ti/super-duplex colapso 689bar; cold-plate à parede (térmica ~20°C interno).
+elec_OD = 200; elec_L = 350; elec_wall = 16;   // OD180->200, L300->350 (reprojeto canister)
 elec_y  = can_OD/2 + elec_OD/2 + 25;     // ao lado do magneto (+Y), sobre o plate
 elec_zbase = plate_top;                   // base apoiada no plate
 
@@ -118,10 +119,12 @@ module frame() color("dimgray") {
 }
 
 // ----- canister de eletronica EM PÉ, base no PLATE, ao lado do magneto; recuperavel por ROV -----
-module elec_canister() color("seagreen")
+module elec_canister()
     translate([0, elec_y, elec_zbase + elec_L/2]) {
-        difference() { cylinder(h=elec_L, d=elec_OD, center=true); cylinder(h=elec_L-24, d=elec_OD-24, center=true);}
-        translate([0,0,-elec_L/2-15]) cylinder(h=15, d=elec_OD*0.8, center=false);                    // flange de base no plate
+        color("seagreen") difference() { cylinder(h=elec_L, d=elec_OD, center=true); cylinder(h=elec_L-2*elec_wall, d=elec_OD-2*elec_wall, center=true);}  // vaso 1-atm (colapso 689bar)
+        // cold-plate de Cu/Al acoplado a parede (caminho termico ao mar) — fontes RFPA/GPA/DC-DC montam aqui
+        color([0.72,0.45,0.20]) translate([0,0,0]) difference(){ cylinder(h=elec_L-2*elec_wall-10, d=elec_OD-2*elec_wall-2, center=true); cylinder(h=elec_L, d=elec_OD-2*elec_wall-14, center=true);}
+        color("seagreen") translate([0,0,-elec_L/2-15]) cylinder(h=15, d=elec_OD*0.8, center=false);   // flange de base no plate
         translate([0,0,elec_L/2]) cylinder(h=45, d1=elec_OD*0.55, d2=elec_OD*0.85, center=false);     // funil de pouso ROV (topo)
         translate([0,0,elec_L/2+45]) rotate([0,90,0]) cylinder(h=elec_OD*0.6, d=18, center=true);      // handle ROV
     }
