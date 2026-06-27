@@ -1,0 +1,172 @@
+group() {
+	multmatrix([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) {
+		color([0.752941, 0.752941, 0.752941, 1]) {
+			group() {
+				difference() {
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 970, r1 = 39, r2 = 39, center = true);
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 972, r1 = 32.5, r2 = 32.5, center = true);
+				}
+			}
+		}
+		group() {
+			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -471], [0, 0, 0, 1]]) {
+				color([0.411765, 0.411765, 0.411765, 1]) {
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 28, r1 = 92.5, r2 = 92.5, center = true);
+				}
+			}
+			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 471], [0, 0, 0, 1]]) {
+				color([0.411765, 0.411765, 0.411765, 1]) {
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 28, r1 = 92.5, r2 = 92.5, center = true);
+				}
+			}
+		}
+	}
+}
+group() {
+	multmatrix([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) {
+		color([0.3, 0.3, 0.35, 1]) {
+			group() {
+				difference() {
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 340, r1 = 138, r2 = 138, center = true);
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 342, r1 = 52, r2 = 52, center = true);
+				}
+			}
+		}
+	}
+}
+group() {
+	multmatrix([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) {
+		color([1, 0.647059, 0, 1]) {
+			group() {
+				difference() {
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 272, r1 = 41.5, r2 = 41.5, center = true);
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 274, r1 = 39.5, r2 = 39.5, center = true);
+				}
+			}
+		}
+		color([0, 0.501961, 0.501961, 1]) {
+			group() {
+				difference() {
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 306, r1 = 45.5, r2 = 45.5, center = true);
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 308, r1 = 43, r2 = 43, center = true);
+				}
+			}
+		}
+		color([0.6, 0.6, 0.65, 1]) {
+			group() {
+				difference() {
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 289, r1 = 48, r2 = 48, center = true);
+					cylinder($fn = 48, $fa = 12, $fs = 2, h = 291, r1 = 47, r2 = 47, center = true);
+				}
+			}
+		}
+	}
+}
+group() {
+	multmatrix([[1, 0, 0, -207], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+		group() {
+			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -102], [0, 0, 0, 1]]) {
+				color([0.2, 0.5, 0.7, 1]) {
+					cube(size = [300, 430, 90], center = true);
+				}
+			}
+			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+				color([0.2, 0.5, 0.7, 1]) {
+					cube(size = [300, 430, 90], center = true);
+				}
+			}
+			multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 102], [0, 0, 0, 1]]) {
+				color([0.2, 0.5, 0.7, 1]) {
+					cube(size = [300, 430, 90], center = true);
+				}
+			}
+		}
+	}
+}
+group() {
+	color([0.7, 0.75, 0.8, 0.45]) {
+		difference() {
+			cube(size = [750, 500, 500], center = true);
+			cube(size = [734, 484, 484], center = true);
+			multmatrix([[0, 0, 1, 0], [0, 1, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]) {
+				cylinder($fn = 48, $fa = 12, $fs = 2, h = 754, r1 = 44, r2 = 44, center = true);
+			}
+		}
+	}
+}
+group() {
+	multmatrix([[1, 0, 0, 0], [0, 1, 0, 248], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+		color([0.55, 0.6, 0.65, 1]) {
+			cube(size = [690, 6, 440], center = true);
+		}
+		group() {
+			multmatrix([[1, 0, 0, -325], [0, 1, 0, 251], [0, 0, 1, -210], [0, 0, 0, 1]]) {
+				color([1, 0.843137, 0, 1]) {
+					multmatrix([[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+						cylinder($fn = 48, $fa = 12, $fs = 2, h = 10, r1 = 5, r2 = 5, center = true);
+					}
+				}
+			}
+			multmatrix([[1, 0, 0, -325], [0, 1, 0, 251], [0, 0, 1, 210], [0, 0, 0, 1]]) {
+				color([1, 0.843137, 0, 1]) {
+					multmatrix([[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+						cylinder($fn = 48, $fa = 12, $fs = 2, h = 10, r1 = 5, r2 = 5, center = true);
+					}
+				}
+			}
+			multmatrix([[1, 0, 0, 325], [0, 1, 0, 251], [0, 0, 1, -210], [0, 0, 0, 1]]) {
+				color([1, 0.843137, 0, 1]) {
+					multmatrix([[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+						cylinder($fn = 48, $fa = 12, $fs = 2, h = 10, r1 = 5, r2 = 5, center = true);
+					}
+				}
+			}
+			multmatrix([[1, 0, 0, 325], [0, 1, 0, 251], [0, 0, 1, 210], [0, 0, 0, 1]]) {
+				color([1, 0.843137, 0, 1]) {
+					multmatrix([[1, 0, 0, 0], [0, 0, -1, 0], [0, 1, 0, 0], [0, 0, 0, 1]]) {
+						cylinder($fn = 48, $fa = 12, $fs = 2, h = 10, r1 = 5, r2 = 5, center = true);
+					}
+				}
+			}
+		}
+	}
+}
+group() {
+	multmatrix([[1, 0, 0, 255], [0, 1, 0, 0], [0, 0, 1, -270], [0, 0, 0, 1]]) {
+		color([0, 0.501961, 0, 1]) {
+			cylinder($fn = 48, $fa = 12, $fs = 2, h = 40, r1 = 15, r2 = 15, center = true);
+		}
+	}
+	multmatrix([[1, 0, 0, -255], [0, 1, 0, 0], [0, 0, 1, 270], [0, 0, 0, 1]]) {
+		color([1, 0, 0, 1]) {
+			cylinder($fn = 48, $fa = 12, $fs = 2, h = 40, r1 = 15, r2 = 15, center = true);
+		}
+	}
+	multmatrix([[1, 0, 0, 465], [0, 1, 0, 0], [0, 0, 1, -160], [0, 0, 0, 1]]) {
+		color([0.3, 0.3, 0.3, 1]) {
+			cube(size = [120, 160, 160], center = true);
+		}
+	}
+}
+group() {
+	multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -310], [0, 0, 0, 1]]) {
+		color([0.25, 0.25, 0.25, 1]) {
+			cube(size = [830, 580, 20], center = true);
+			group() {
+				multmatrix([[1, 0, 0, -355], [0, 1, 0, -230], [0, 0, 1, 50], [0, 0, 0, 1]]) {
+					cube(size = [40, 40, 100], center = true);
+				}
+				multmatrix([[1, 0, 0, -355], [0, 1, 0, 230], [0, 0, 1, 50], [0, 0, 0, 1]]) {
+					cube(size = [40, 40, 100], center = true);
+				}
+				multmatrix([[1, 0, 0, 355], [0, 1, 0, -230], [0, 0, 1, 50], [0, 0, 0, 1]]) {
+					cube(size = [40, 40, 100], center = true);
+				}
+				multmatrix([[1, 0, 0, 355], [0, 1, 0, 230], [0, 0, 1, 50], [0, 0, 0, 1]]) {
+					cube(size = [40, 40, 100], center = true);
+				}
+			}
+		}
+	}
+}
+
